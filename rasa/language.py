@@ -1,5 +1,11 @@
 
-class Language(object): pass
+class Language(object):
+   def __init__(self) :
+      pass
+   def define(self, args) :
+      pass
+   def write(self, name, type) :
+      pass
 
 class File(object) :
    ext = '.txt'

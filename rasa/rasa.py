@@ -25,14 +25,14 @@ def user_input() :
    subparsers = parser.add_subparsers(dest='language', metavar='language', help='Language specific options')
    # C++ Parser
    parser_cpp = subparsers.add_parser('cpp', help='C++ template options')
-   parser_cpp.add_argument('-t', '--trick', help='Generate default Trick headings', action='store_true')
+   parser_cpp.add_argument('-t', '--trick', help='Generate default Trick headings', action='store_true', default=False)
    # Python Parser
    parser_python = subparsers.add_parser('python', help='Python template options')
 
    # Common arguments
    parser.add_argument('name', help="Name of class and/or file")
-   parser.add_argument('-m', '--main', help="Creates a file designated as the top-level main", action='store_true', default=False)
    parser.add_argument('-c', '--class', help="Creates a file containing a class definition", action='store_true', default=True)
+   parser.add_argument('-m', '--main', help="Creates a file designated as the top-level main", action='store_true', default=False)
 
    # Parse
    return parser.parse_args()
