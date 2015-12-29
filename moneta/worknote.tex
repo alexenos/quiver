@@ -1,0 +1,56 @@
+%% Command Redefinitions for WorkNote
+%% Redefine \labday
+\newcommand{\workdaydate}[1]{#1}
+\newcommand{\workday}[2]{\labday{#1}\renewcommand{\workdaydate}{#2}}
+
+%% Redefine itemize/enumerate environment
+\newcommand{\itm}{\item}
+\newcommand{\stit}{\begin{itemize}}
+\newcommand{\enit}{\end{itemize}}
+\newcommand{\sten}{\begin{enumerate}}
+\newcommand{\enen}{\end{enumerate}}
+
+%% Workday preamble
+\newcommand{\todotoday}{The day's best laid plans:}
+
+%% Define Lists of ....
+%% List of Processes
+\newcommand{\listprocessname}{List of Processes}
+\newlistof{process}{procs}{\listprocessname}
+
+\newcommand{\process}[2]{%
+  \refstepcounter{process}
+  \subsubsection{Process: #1}\label{procs:#2}
+  \addcontentsline{procs}{process}{\protect\numberline{\theprocess}#1}\par
+}
+
+%% List of Deliverables
+\newcommand{\listdelivname}{List of Deliverables}
+\newlistof{deliv}{delv}{\listdelivname}
+
+\newcommand{\deliv}[2]{%
+  \refstepcounter{deliv}
+  \subsubsection{Delivery: #1}\label{deliv:#2}
+  \addcontentsline{delv}{deliv}{\workdaydate \hspace{10 pt} #1}\par
+}
+
+%% List of Receivables
+\newcommand{\listreceivname}{List of Receivables}
+\newlistof{receive}{recv}{\listreceivname}
+
+\newcommand{\receive}[2]{%
+  \refstepcounter{receive}
+  \subsubsection{Receivable: #1}\label{receive:#2}
+  \addcontentsline{recv}{receive}{\workdaydate \hspace{10 pt} #1}\par
+} 
+
+%% List of Known Fixes
+\newcommand{\listfixname}{List of Known Fixes}
+\newlistof{fix}{fx}{\listfixname}
+
+\newcommand{\fix}[2]{%
+  \refstepcounter{fix}
+  \par\noindent\textbf{Fix: #1}\label{fix:#2}
+  \addcontentsline{fx}{fix}{\protect\numberline{\thefix}#1}\par
+}
+ 

@@ -1,0 +1,89 @@
+%% 2013 Work Notebook
+%% M. Dax Garner
+
+%% Labbook Class
+\documentclass[idxtotoc,hyperref]{packages/labbook/labbook}
+
+%% Packages ---------------------------------------------------------------- %%
+
+%% TocLoF/T Package
+\usepackage{packages/tocloft/tocloft}
+
+%% Figure graphicsx Package
+\usepackage{graphicx}
+
+%% Figure float Package
+\usepackage{float}
+
+%% Math Packages
+\usepackage{mathtools}
+\usepackage{bm}
+
+%% Hyperref Package
+%%   Must be last packages included.
+\usepackage[%
+  backref=page,%
+  pdfpagelabels=true,%
+  plainpages=false,%
+  colorlinks=true,%
+  bookmarks=true,%
+  pdfview=FitB]{hyperref}
+
+%% Preamble ---------------------------------------------------------------- %%
+
+%% New Commands
+\input{worknote}
+
+%% Project Definitions for Index
+\input{projects/projects}
+
+%% Title Matter
+\title{Template for WorkNote v0.1}
+\author{M. Dax Garner}
+\date{\today}
+
+%% Bilography Style
+\bibliographystyle{plain}
+
+%% Begin Document ---------------------------------------------------------- %%
+\begin{document}
+
+  %% Standard Front Matter
+  \frontmatter % Static - must be here
+  \maketitle % Can move around, but recommend before \mainmatter
+  \printindex
+  
+  %% Additional Lists - can rearrange order
+  \listofdeliv
+  \newpage
+  \listofreceive
+  \newpage
+  \listofprocess
+  \newpage
+  \listoffix
+  \newpage
+  \listoffigures
+  \newpage
+  \listoftables
+  \newpage
+  %% Insert new listof's here
+
+  \mainmatter % Static - place prior to actual daily notes
+  %% Weeks
+  \input{year/mmdd}
+  %% Insert next week here.
+  
+  \newpage
+  \tableofcontents % I find this section gets large quickly; so I placed it here at the end.
+
+  \backmatter % Static - must be last-ish
+
+  %% Bibliography - can rearrange order
+  \bibliography{%
+    bib/book%
+    %% Add bibliopgraphies.
+  }
+  
+
+\end{document}
+\endinput 
